@@ -1,0 +1,27 @@
+.SearchBar strong{
+    font-size: 1.5rem;
+}
+
+.SearchBar input{
+    font-size: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px 45px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 5px rgba(218, 133, 6, 0.959);
+}
+
+.SearchBar input:focus {
+  border-color: #ff914d;
+  box-shadow: 0 0 8px rgba(235, 122, 52, 0.2);
+}
+
+.SearchBar svg{
+    position: relative;
+    left: -40px;
+    cursor: pointer;
+    color: #888;
+}
+.SearchBar svg:hover {
+  color: #ff914d;
+}

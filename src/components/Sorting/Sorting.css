@@ -1,0 +1,35 @@
+.sorting {
+  background-color: #faf9f8;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(237, 93, 41, 0.5);
+  max-width: 250px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.sorting strong {
+  font-size: 1.5rem;
+}
+
+.sorting p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0.5rem 0;
+}
+
+.sorting label {
+  display: flex;
+  align-items: center;
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+  
+}
+
+.sorting input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #ff6347;
+  cursor: pointer;
+}

@@ -1,0 +1,79 @@
+.menu-container{
+    text-align: center;
+    background: #f7f2f7;
+    min-height: 100vh;
+    padding: 20px;
+    
+}
+
+.menu-title{
+    font-size: 2.5rem;
+}
+
+.menu-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 2fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.menu-card{
+    background: #f9f6f6;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+
+}
+
+.menu-card:hover {
+  transform: scale(1.03);
+}
+
+.menu-image{
+    width: 100%;
+     border-radius: 12px;
+}
+
+.price{
+    color: green;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.ExploreMenu h1 {
+    font-size: 3rem;
+    color: orange;
+}
+
+.ExploreMenu p {
+    font-size: 2rem;
+    color: rgb(130, 123, 123);
+}
+
+.explore-menu-list {
+    display: flex;
+    justify-content: center;
+    gap: 59px;
+    padding: 30px;
+    margin: 20px 0px;
+}
+
+.explore-menu-list .active{
+    border: 10px solid rgb(234, 137, 25);
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.filters{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+@media (max-width: 1540.47px){
+  .explore-menu-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  }
+}
