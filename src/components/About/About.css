@@ -1,50 +1,49 @@
 .about {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-  }
-  
-  .about h1 {
-    text-align: center;
-    font-size: 5rem;
-    margin-bottom: 15px;
-    color: #1d4ed8;
-  }
-  
-  .about .intro {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .about-section {
-    margin-bottom: 45px;
-  }
-  
-  .about-section h2 {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  
-  .about-section p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-align: center;
-  }
-  
-  .about-section a {
-    color: #2563eb;
-    text-decoration: none;
-  }
-  
-  .about-section a:hover {
-    text-decoration: underline;
-  }
-  
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.about h1 {
+  text-align: center;
+  font-size: 3rem; /* reduced from 5rem */
+  margin-bottom: 10px;
+  color: #1d4ed8;
+}
+
+.about .intro {
+  text-align: center;
+  font-size: 1.8rem; /* reduced from 2.5rem */
+  margin-bottom: 25px;
+}
+
+.about-section {
+  margin-bottom: 35px;
+}
+
+.about-section h2 {
+  font-size: 2.2rem; /* reduced from 3rem */
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.about-section p {
+  font-size: 1.05rem; /* reduced slightly from 1.2rem */
+  line-height: 1.6;
+  text-align: center;
+}
+
+.about-section a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.about-section a:hover {
+  text-decoration: underline;
+}

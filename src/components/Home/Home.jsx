@@ -46,3 +46,4 @@ const Home = ({onAddToCart}) => {
   )
 }
 export default Home;
+

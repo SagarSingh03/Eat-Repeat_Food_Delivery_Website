@@ -101,3 +101,5 @@ const Menu = ({ onAddToCart }) => {
 };
 
 export default Menu;
+
+
