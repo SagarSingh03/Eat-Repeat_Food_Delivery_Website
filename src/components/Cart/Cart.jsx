@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // ✅ Added useState
+import React, { useState } from 'react'; 
 import './Cart.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -7,7 +7,7 @@ import Navbar from '../Navbar/Navbar';
 import Payment from '../Payment/Payment';
 
 function Cart({ cartItems, increaseQty, decreaseQty, removeItem, clearCartItems }) {
-  const [showModal, setShowModal] = useState(false); // ✅ State for modal
+  const [showModal, setShowModal] = useState(false); 
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
@@ -16,7 +16,7 @@ function Cart({ cartItems, increaseQty, decreaseQty, removeItem, clearCartItems 
     const confirm = window.confirm("Choose payment method:\nOK = Online\nCancel = Cash on Delivery");
 
     if (confirm) {
-      setShowModal(true); // ✅ Open custom payment modal
+      setShowModal(true); 
     } else {
       alert("✅ Order placed with Cash on Delivery");
     }
@@ -24,7 +24,7 @@ function Cart({ cartItems, increaseQty, decreaseQty, removeItem, clearCartItems 
 
   const handlePaymentSuccess = () => {
     alert("🎉 Order Confirmed! Thank you for your payment.");
-    setShowModal(false); // close the modal
+    setShowModal(false); 
     clearCartItems();
   };
 
