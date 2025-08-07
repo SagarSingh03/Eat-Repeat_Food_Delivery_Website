@@ -20,19 +20,19 @@
 }
 
 .contact-title {
-  font-size: 3.5rem; /* ↓ from 6rem */
+  font-size: 3.5rem; 
   margin-bottom: 20px;
   color: #ffe600;
 }
 
 .contact-subtext {
-  font-size: 1.6rem; /* ↓ from 2rem */
+  font-size: 1.6rem; 
   margin-bottom: 15px;
 }
 
 .contact-info {
   margin-top: 25px;
-  font-size: 1.2rem; /* ↓ from 1.5rem */
+  font-size: 1.2rem; 
   line-height: 1.8;
   color: #f70606;
 }
@@ -46,7 +46,7 @@
 }
 
 .contact-socials h4 {
-  font-size: 1.5rem; /* ↓ from 1.8rem */
+  font-size: 1.5rem; 
   margin-bottom: 15px;
   color: #ffdd57;
 }
@@ -62,7 +62,7 @@
   color: #00bfff;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1rem; /* ↓ from 1.2rem */
+  font-size: 1rem; 
   transition: color 0.3s ease;
 }
 
