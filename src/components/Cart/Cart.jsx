@@ -80,3 +80,4 @@ function Cart({ cartItems, increaseQty, decreaseQty, removeItem, clearCartItems 
 export default Cart;
 
 
+

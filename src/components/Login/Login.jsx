@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <div className="Login-page">
     <div className='Login'>
-      <Navbar/>
+     <nav className='NavbarLogin'> <Navbar/> </nav> 
     <div className="container">
       <div className="header">
         <div className="text">{action}</div>
@@ -52,3 +52,5 @@ const Login = () => {
 }
 
 export default Login;
+
+
