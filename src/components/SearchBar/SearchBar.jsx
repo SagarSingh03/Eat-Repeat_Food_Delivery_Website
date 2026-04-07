@@ -1,26 +1,15 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './SearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { food_list } from '../../assets/Data.js';
 
-
-const debounce = (func, delay) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-};
-
-function SearchBar({ setCategory, setSearchResults }) {
+function SearchBar({ setSearchResults }) {
   const [query, setQuery] = useState('');
+  const timerRef = useRef(null);
 
-  
   const handleSearch = (value) => {
     if (value.trim() === '') {
-      setSearchResults([]); // Reset if empty
+      setSearchResults([]);
       return;
     }
 
@@ -29,16 +18,27 @@ function SearchBar({ setCategory, setSearchResults }) {
     );
 
     setSearchResults(filtered);
-    setCategory("All");
   };
-
-  const debounceSearch = useCallback(debounce(handleSearch, 500), []);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-    debounceSearch(value);
+
+    clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      handleSearch(value);
+    }, 500);
   };
+
+  const handleIconClick = () => {
+    clearTimeout(timerRef.current);
+    handleSearch(query);
+  };
+
+  // cleanup
+  useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
 
   return (
     <div className="SearchBar">
@@ -51,7 +51,7 @@ function SearchBar({ setCategory, setSearchResults }) {
           value={query}
           onChange={handleChange}
         />
-        <SearchIcon className="searchicon" />
+        <SearchIcon className="searchicon" onClick={handleIconClick} />
       </div>
     </div>
   );

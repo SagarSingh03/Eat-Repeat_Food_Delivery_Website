@@ -1,110 +1,205 @@
-.Footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+/* ===== FOOTER WRAPPER ===== */
+.footer {
   background-color: #02184a;
-  color: grey;
-  padding: 40px 20px;
-  flex-wrap: wrap;
+  color: #9aa3b2;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* ===== FOOTER MAIN GRID ===== */
+.Footer {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 2fr;
+  gap: 60px;
+  padding: 60px 80px;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+/* ===== LEFT - BRAND ===== */
 .Left h2 {
-  color: whitesmoke;
-  font-size: 2rem; 
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.5px;
 }
 
 .Left p {
-  font-size: 1.1rem; 
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #8a95a8;
+  margin: 0;
 }
 
+/* ===== CENTER - LINKS ===== */
 .center h2 {
-  color: whitesmoke;
-  font-size: 1.8rem; 
-  cursor: pointer;
-  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 20px 0;
 }
 
 .center ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .center li {
-  font-size: 1.1rem; 
+  font-size: 0.95rem;
   cursor: pointer;
-  margin-bottom: 6px;
+  color: #8a95a8;
+  transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
 .center li:hover {
-  color: whitesmoke;
+  color: #F3732F;
+  padding-left: 6px;
 }
 
+/* ===== RIGHT - NEWSLETTER ===== */
 .Right h1 {
-  color: whitesmoke;
-  font-size: 1.8rem; 
-  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 14px 0;
 }
 
 .Right p {
-  font-size: 1.2rem; 
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #8a95a8;
+  margin: 0 0 20px 0;
+}
+
+/* ===== SUBSCRIBE FORM ===== */
+.subscribe {
+  display: flex;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #1e3a7a;
 }
 
 .email {
-  font-size: 1.2rem; 
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  border: none;
+  outline: none;
+  background-color: #0a2260;
+  color: #ffffff;
+  min-width: 0;
 }
 
-.subscribe {
-  display: flex;
-  margin-top: 10px;
-  flex-wrap: wrap;
+.email::placeholder {
+  color: #5a6a88;
+}
+
+.email:focus {
+  background-color: #0d2870;
 }
 
 .button {
-  background-color: #3B82F6;
-  color: #FFFFFF;
-  font-size: 1.3rem; 
-  border-radius: 0 4px 4px 0;
+  background-color: #F3732F;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  border: none;
   cursor: pointer;
-  padding: 5px 12px;
-  border: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  letter-spacing: 0.3px;
 }
 
-.footer-line {
-  border: none;
-  border-top: 1px solid #2c3e50;
-  margin: 30px 0 15px;
+.button:hover {
+  background-color: #d95f20;
 }
 
+/* ===== DIVIDER ===== */
+.hr {
+  border: none;
+  border-top: 1px solid #1a3060;
+  margin: 0 80px;
+}
+
+/* ===== FOOTER BOTTOM ===== */
 .footer-bottom {
   text-align: center;
-  font-size: 1rem; 
-  background-color: #021a51;
-  color: white;
-  padding: 10px 0;
+  font-size: 0.85rem;
+  color: #5a6a88;
+  padding: 20px 0;
 }
 
-.footer {
-  background-color: #041e5c;
-}
-
-.hr {
-  margin-top: 25px;
-  width: 75%;
-  margin-left: 12.5%;
-}
-
-/* Responsive - Tablet & Smaller Screens */
-@media (max-width: 1440px) {
+/* ===== TABLET (max 1024px) ===== */
+@media (max-width: 1024px) {
   .Footer {
-    flex-direction: column;
-    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 50px 40px;
+  }
+
+  .Left {
+    grid-column: 1 / -1;
+  }
+
+  .hr {
+    margin: 0 40px;
+  }
+}
+
+/* ===== MOBILE (max 768px) ===== */
+@media (max-width: 768px) {
+  .Footer {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 40px 24px;
     text-align: center;
   }
 
+  .Left {
+    grid-column: auto;
+  }
+
+  .center ul {
+    align-items: center;
+  }
+
+  .center li:hover {
+    padding-left: 0;
+  }
+
   .subscribe {
-    justify-content: center;
+    flex-direction: column;
+    border-radius: 6px;
+    overflow: visible;
+    border: none;
+    gap: 10px;
+  }
+
+  .email {
+    border-radius: 6px;
+    border: 1px solid #1e3a7a;
+    padding: 12px 16px;
+  }
+
+  .button {
+    border-radius: 6px;
+    padding: 12px;
+    width: 100%;
+  }
+
+  .hr {
+    margin: 0 24px;
   }
 }

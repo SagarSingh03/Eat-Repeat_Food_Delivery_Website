@@ -2,8 +2,6 @@ import React from 'react';
 import './Contact.css';
 import background from '../../assets/Contact-bg.jpg';
 
-
-
 function Contact() {
   return (
     <div>

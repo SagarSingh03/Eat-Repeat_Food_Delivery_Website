@@ -1,7 +1,14 @@
+/* ===== HERO ===== */
 .hero {
-  margin: 135px auto 0 auto;
+  position: relative;
+  min-height: 100vh;
   max-width: 1200px;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 140px 40px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .hero-text {
@@ -11,6 +18,7 @@
   color: rgb(249, 243, 247);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   max-width: 90%;
+  line-height: 1.2;
 }
 
 .hero-explore {
@@ -23,6 +31,7 @@
   border-radius: 60px;
   background-color: white;
   cursor: pointer;
+  border: none;
 }
 
 .hero-explore:hover {
@@ -36,10 +45,18 @@
 }
 
 .hero-dot-play {
-  margin-top: 10px;
-  margin-left: 550px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-top: 220px;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.class-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .hero-dot {
@@ -48,116 +65,81 @@
   list-style: none;
   width: 15px;
   height: 15px;
-  background: #FFF;
+  background: #fff;
   border-radius: 50%;
   cursor: pointer;
-}
-
-.class-dots {
-  display: flex;
-  gap: 10px;
-  margin-top: 185px;
-  justify-content: center;
+  transition: background 0.3s ease;
 }
 
 .hero-dot.orange {
   background: #f56213;
-  margin-bottom: 25px;
 }
 
 .hero-play {
   display: flex;
   align-items: center;
   gap: 30px;
-  font-size: 24px;
+  font-size: 22px;
   color: #fff;
-  margin-left: 330px;
+  cursor: pointer;
 }
 
-/* Tablet Styles */
+/* ===== TABLET ===== */
 @media (max-width: 1024px) {
   .hero {
-    margin-top: 100px;
-    padding: 0 30px;
-    background-color: #2fc5f3;
+    padding: 120px 30px 60px 30px;
   }
 
   .hero-text {
     font-size: 3rem;
-    margin-top: 400px;
-  }
-
-  .hero-explore p {
-    font-size: 16px;
   }
 
   .hero-dot-play {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px;
-    margin-left: 0;
-  }
-
-  .class-dots {
-    margin-top: 80px;
-  }
-
-  .hero-dot {
-    width: 12px;
-    height: 12px;
+    max-width: 400px;
+    margin-top: 50px;
   }
 
   .hero-play {
+    font-size: 18px;
     gap: 20px;
-    margin-left: 0;
   }
 }
 
-/* Mobile Styles */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hero {
-    margin-top: 80px;
-    padding: 0 20px;
-    background-color: #2fc5f3;
+    padding: 140px 20px 60px 20px;
+    min-height: 100vh;
   }
 
   .hero-text {
-    margin-top: 400px;
     font-size: 2.2rem;
-    
-  }
-
-  .hero-explore {
-    padding: 5px 18px;
-    gap: 10px;
+    max-width: 100%;
   }
 
   .hero-explore p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .hero-dot-play {
     flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 40px;
   }
 
   .class-dots {
     flex-direction: row;
-    margin-top: 60px;
   }
 
   .hero-dot {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
   }
 
   .hero-play {
-    flex-direction: column;
+    font-size: 16px;
     gap: 10px;
-    align-items: center;
-    font-size: 18px;
-    margin-left: 0;
   }
 
   .hero-play img {

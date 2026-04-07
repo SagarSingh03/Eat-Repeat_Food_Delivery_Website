@@ -1,37 +1,36 @@
+.Login-page {
+  min-height: 100vh;
+  background-color: #68a3d3;
+}
 
 .Login {
   min-height: 100vh;
-  background-color: #287ed9;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;  
+  padding-top: 100px;
   padding-bottom: 40px;
   box-sizing: border-box;
 }
 
-.NavbarLogin{
-    display: flex;
-    text-align: center; 
-    position: fixed; 
-    top: 0; 
-     left: 0;
-    width: 100%; 
-     height: 80px;
-    background-color: transparent;
-    z-index: 1000; 
-     display: flex; 
-     justify-content: space-around; 
-     align-items: center; 
-     padding: 0; 
-     margin-top: 20px; 
-     font-weight: 500px; 
-     color: rgb(249, 246, 246);
-     box-shadow: 0 2px 10px(0,0,0);
+.NavbarLogin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  font-weight: 500;
+  color: rgb(249, 246, 246);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Form Container */
 .container {
   width: 100%;
   max-width: 420px;
@@ -42,7 +41,6 @@
   box-sizing: border-box;
 }
 
-/* Sign Up Heading */
 .text {
   text-align: center;
   color: #3c009d;
@@ -59,12 +57,11 @@
   margin: 0 auto;
 }
 
-/* Input Group */
 .inputs {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .input {
@@ -74,11 +71,17 @@
   border-radius: 8px;
   display: flex;
   align-items: center;
+  transition: background 0.2s ease;
+}
+
+.input:focus-within {
+  background: #e0e0e0;
 }
 
 .input img {
   margin-right: 12px;
   width: 20px;
+  flex-shrink: 0;
 }
 
 .input input {
@@ -88,38 +91,86 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  color: #555;
+  color: #333;
 }
 
-/* Button Row */
+.input input::placeholder {
+  color: #888;
+}
+
+.forgot-password {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: right;
+}
+
+.forgot-password span {
+  color: #f3732f;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.forgot-password span:hover {
+  text-decoration: underline;
+}
+
 .submit-container {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 35px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 
 .submit {
-  background: #f3732f;
-  color: white;
-  padding: 12px 25px;
+  padding: 12px 30px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  user-select: none;
+}
+
+.submit.active {
+  background: #f3732f;
+  color: white;
 }
 
 .submit.gray {
   background: #eaeaea;
-  color: #333;
+  color: #666;
 }
 
 .submit:hover {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
+.submit:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 0 16px;
+    padding: 30px 20px;
+  }
+
+  .text {
+    font-size: 1.8rem;
+  }
+
+  .submit-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .submit {
+    width: 100%;
+    text-align: center;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .NavbarLogin {
@@ -128,39 +179,22 @@
     font-size: 0.95rem;
   }
 
-  
   .Login {
-    padding-top: 100px; 
+    padding-top: 110px;
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  
   .container {
-    width: 100%;
     max-width: 460px;
     padding: 35px 30px;
   }
 
-  
   .text {
     font-size: 2rem;
   }
 
-  
   .input {
     height: 52px;
-    padding: 0 15px;
-  }
-
-  .input input {
-    font-size: 1rem;
-  }
-
-  
-  .submit {
-    font-size: 0.95rem;
-    padding: 11px 24px;
   }
 }
-

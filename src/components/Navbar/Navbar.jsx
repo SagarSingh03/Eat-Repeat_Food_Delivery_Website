@@ -1,64 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import { Link as ScrollLink } from 'react-scroll';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function Navbar() {
+const NAV_ITEMS = [
+  { label: 'Home', target: 'home' },
+  { label: 'Menu', target: 'menu' },
+  { label: 'About', target: 'about' },
+  { label: 'Contact', target: 'contact' },
+];
 
+function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNavigationAndScroll = (target) => {
+    setMenuOpen(false);
     if (location.pathname !== '/') {
-      navigate('/', { replace: false });
+      navigate('/');
       sessionStorage.setItem('scrollTo', target);
     }
   };
 
   return (
     <div className="Navbar">
-      <div className="nav-logo">Eat&Repeat</div>
+      <div className="nav-logo">Eat&amp;Repeat</div>
 
-      <ul className="nav-menu">
+      <button
+        className={`nav-hamburger ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(prev => !prev)}
+        aria-label="Toggle menu"
+      >
+        <span /><span /><span />
+      </button>
 
-        <li>
-          {location.pathname === '/' ? (
-            <ScrollLink to="home" smooth={true} duration={500} offset={-80}>Home</ScrollLink>
-          ) : (
-            <span onClick={() => handleNavigationAndScroll('home')}>Home</span>
-          )}
-        </li>
-
-        <li>
-          {location.pathname === '/' ? (
-            <ScrollLink to="menu" smooth={true} duration={500} offset={-80}>Menu</ScrollLink>
-          ) : (
-            <span onClick={() => handleNavigationAndScroll('menu')}>Menu</span>
-          )}
-        </li>
-
-        <li>
-          {location.pathname === '/' ? (
-            <ScrollLink to="about" smooth={true} duration={500} offset={-80}>About</ScrollLink>
-          ) : (
-            <span onClick={() => handleNavigationAndScroll('about')}>About</span>
-          )}
-        </li>
-
-        <li>
-          {location.pathname === '/' ? (
-            <ScrollLink to="contact" smooth={true} duration={500} offset={-80}>Contact</ScrollLink>
-          ) : (
-            <span onClick={() => handleNavigationAndScroll('contact')}>Contact</span>
-          )}
-        </li>
+      <ul className={`nav-menu ${menuOpen ? 'nav-menu--open' : ''}`}>
+        {NAV_ITEMS.map(({ label, target }) => (
+          <li key={target}>
+            {location.pathname === '/' ? (
+              <ScrollLink
+                to={target}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </ScrollLink>
+            ) : (
+              <span onClick={() => handleNavigationAndScroll(target)}>{label}</span>
+            )}
+          </li>
+        ))}
 
         <li className="nav-cart">
-          <span onClick={() => navigate("/cart")}>Cart</span>
+          <span onClick={() => { navigate('/cart'); setMenuOpen(false); }}>Cart</span>
         </li>
-
         <li className="nav-login">
-          <span onClick={() => navigate("/login")}>Login</span>
+          <span onClick={() => { navigate('/login'); setMenuOpen(false); }}>Login</span>
         </li>
       </ul>
     </div>
@@ -66,7 +66,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-

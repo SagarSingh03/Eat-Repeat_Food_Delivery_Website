@@ -13,31 +13,36 @@ const Menu = ({ onAddToCart }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [sortedItems, setSortedItems] = useState([]);
 
-  // Filter logic
-  let filteredItems = food_list;
+  // ✅ STEP 1: Start with full list
+  let filteredItems = [...food_list];
 
-  if (searchResults.length > 0) {
-    filteredItems = searchResults;
-  } else if (category !== "All") {
-    filteredItems = food_list.filter(item => item.category === category);
+  // ✅ STEP 2: Apply category filter
+  if (category !== "All") {
+    filteredItems = filteredItems.filter(item => item.category === category);
   }
 
+  // ✅ STEP 3: Apply search (override category if searching)
+  if (searchResults.length > 0) {
+    filteredItems = searchResults;
+  }
+
+  // ✅ STEP 4: Apply sorting on FINAL data
   if (sortedItems.length > 0) {
     filteredItems = sortedItems;
   }
 
   const handleAdd = (item) => {
-    setCount((prev) => ({
+    setCount(prev => ({
       ...prev,
-      [item.id]: (prev[item.id] || 0) + 1,
+      [item.id]: (prev[item.id] || 0) + 1
     }));
     onAddToCart(item);
   };
 
   const handleRemove = (item) => {
-    setCount((prev) => ({
+    setCount(prev => ({
       ...prev,
-      [item.id]: prev[item.id] > 0 ? prev[item.id] - 1 : 0,
+      [item.id]: prev[item.id] > 0 ? prev[item.id] - 1 : 0
     }));
   };
 
@@ -48,17 +53,21 @@ const Menu = ({ onAddToCart }) => {
       <div className="ExploreMenu">
         <h1>Explore our Menu</h1>
         <strong>Delicious Moments, Delivered.</strong>
-        <p>From comfort food to gourmet treats — we bring happiness to your plate, wherever you are.</p>
+        <p>
+          From comfort food to gourmet treats — we bring happiness to your plate, wherever you are.
+        </p>
       </div>
 
+      {/* ✅ CATEGORY */}
       <div className="explore-menu-list">
         {menu_list.map((item, index) => (
           <div
             key={index}
+            className="menu-category-item"
             onClick={() => {
-              setCategory((prev) => (prev === item.menu_name ? "All" : item.menu_name));
-              setSortedItems([]); // reset sorting on category change
-              setSearchResults([]); // reset search on category change
+              setCategory(prev => (prev === item.menu_name ? "All" : item.menu_name));
+              setSortedItems([]);     // reset sorting
+              setSearchResults([]);   // reset search
             }}
           >
             <img
@@ -71,29 +80,64 @@ const Menu = ({ onAddToCart }) => {
         ))}
       </div>
 
+      {/* ✅ FILTERS */}
       <div className="filters">
-        <Sorting foodItems={filteredItems} setSortedItems={setSortedItems} />
-        <SearchBar setCategory={setCategory} setSearchResults={setSearchResults} />
+        <Sorting
+          foodItems={filteredItems}
+          setSortedItems={setSortedItems}
+        />
+
+        <SearchBar
+          setCategory={setCategory}
+          setSearchResults={(results) => {
+            setSearchResults(results);
+            setSortedItems([]); // 🔥 reset sorting when searching
+          }}
+        />
       </div>
 
+      {/* ✅ MENU GRID */}
       <div className="menu-grid">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
             <div className="menu-card" key={item.id}>
-              <img src={item.image} alt={item.name} className="menu-image" />
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-              <p className="price">₹{item.price}</p>
-              <span style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <RemoveIcon onClick={() => handleRemove(item)} style={{ cursor: 'pointer' }} />
-                <p>Quantity: {count[item.id] || 0}</p>
-                <AddIcon onClick={() => handleAdd(item)} style={{ cursor: 'pointer' }} />
-                <Rating defaultValue={item.price % 17} />
-              </span>
+              <div className="menu-image-wrapper">
+                <img src={item.image} alt={item.name} className="menu-image" />
+              </div>
+
+              <div className="menu-card-body">
+                <h3 className="menu-item-name">{item.name}</h3>
+                <p className="menu-item-desc">{item.description}</p>
+                <p className="price">₹{item.price}</p>
+
+                <div className="card-actions">
+                  <div className="quantity-controls">
+                    <RemoveIcon
+                      className="qty-icon"
+                      onClick={() => handleRemove(item)}
+                    />
+                    <span className="qty-value">{count[item.id] || 0}</span>
+                    <AddIcon
+                      className="qty-icon"
+                      onClick={() => handleAdd(item)}
+                    />
+                  </div>
+
+                  <Rating
+                    name={`rating-${item.id}`}
+                    defaultValue={4}
+                    precision={0.5}
+                    readOnly
+                    size="small"
+                  />
+                </div>
+              </div>
             </div>
           ))
         ) : (
-          <p>No items found.</p>
+          <div className="no-results">
+            <p>No items found for your search.</p>
+          </div>
         )}
       </div>
     </div>
@@ -101,5 +145,3 @@ const Menu = ({ onAddToCart }) => {
 };
 
 export default Menu;
-
-

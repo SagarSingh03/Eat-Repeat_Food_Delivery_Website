@@ -1,4 +1,11 @@
- .Home { 
-    max-height: 100vh;
+/* ===== HOME ===== */
+.Home {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
+.home {
+  position: relative;
+  width: 100%;
+}

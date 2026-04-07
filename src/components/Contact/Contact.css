@@ -1,71 +1,195 @@
+/* ===== CONTACT SECTION ===== */
 .contact-section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  padding: 50px 15px;
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #f0f0f0;
+  box-sizing: border-box;
+  position: relative;
 }
 
+/* dark overlay on top of background image */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+/* ===== OVERLAY CARD ===== */
 .contact-overlay {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(243, 115, 47, 0.25);
+  padding: 50px 44px;
   border-radius: 16px;
-  max-width: 700px;
+  max-width: 650px;
   width: 100%;
   text-align: center;
+  box-sizing: border-box;
 }
 
+/* ===== BADGE ===== */
+.contact-overlay::before {
+  content: 'GET IN TOUCH';
+  display: inline-block;
+  background: rgba(243, 115, 47, 0.15);
+  border: 1px solid rgba(243, 115, 47, 0.3);
+  border-radius: 30px;
+  padding: 5px 18px;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: #F3732F;
+  margin-bottom: 18px;
+}
+
+/* ===== TITLE ===== */
 .contact-title {
-  font-size: 3.5rem; 
-  margin-bottom: 20px;
-  color: #ffe600;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
 }
 
+/* ===== SUBTEXT ===== */
 .contact-subtext {
-  font-size: 1.6rem; 
-  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #a0aab8;
+  margin: 0 0 8px 0;
+  line-height: 1.7;
 }
 
+.contact-subtext:first-of-type {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #b0bbc8;
+}
+
+/* ===== CONTACT INFO ===== */
 .contact-info {
-  margin-top: 25px;
-  font-size: 1.2rem; 
-  line-height: 1.8;
-  color: #f70606;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #cbd5e0;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .contact-info strong {
-  color: #4fc3f7;
+  color: #F3732F;
+  font-weight: 600;
+  min-width: 68px;
+  text-align: right;
 }
 
+/* ===== SOCIALS ===== */
 .contact-socials {
-  margin-top: 25px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .contact-socials h4 {
-  font-size: 1.5rem; 
-  margin-bottom: 15px;
-  color: #ffdd57;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a6a7a;
+  margin: 0 0 16px 0;
 }
 
+/* ===== SOCIAL LINKS ===== */
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .social-links a {
-  color: #00bfff;
-  font-weight: bold;
+  color: #cbd5e0;
+  font-size: 0.88rem;
+  font-weight: 500;
   text-decoration: none;
-  font-size: 1rem; 
-  transition: color 0.3s ease;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 30px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .social-links a:hover {
-  color: #fff176;
+  color: #ffffff;
+  border-color: #F3732F;
+  background: rgba(243, 115, 47, 0.12);
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+  .contact-overlay {
+    padding: 40px 32px;
+  }
+
+  .contact-title {
+    font-size: 2.4rem;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 16px;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+
+  .contact-overlay {
+    padding: 32px 20px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-subtext {
+    font-size: 0.92rem;
+  }
+
+  .contact-info p {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9rem;
+  }
+
+  .contact-info strong {
+    min-width: auto;
+    text-align: center;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-links a {
+    font-size: 0.82rem;
+    padding: 7px 14px;
+  }
 }
