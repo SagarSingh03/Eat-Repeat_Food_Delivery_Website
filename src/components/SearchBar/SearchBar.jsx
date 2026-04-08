@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './SearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
-import { food_list } from '../../assets/Data.js';
+import { food_list } from "../../assets/foodData";
 
 function SearchBar({ setSearchResults }) {
   const [query, setQuery] = useState('');
@@ -35,7 +35,7 @@ function SearchBar({ setSearchResults }) {
     handleSearch(query);
   };
 
-  // cleanup
+  
   useEffect(() => {
     return () => clearTimeout(timerRef.current);
   }, []);

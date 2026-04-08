@@ -50,7 +50,7 @@ export const menu_list = [
         menu_image: menu_1
     },
     {
-        menu_name: "Deserts",
+        menu_name: "Desserts",
         menu_image: menu_3
     },
     {
@@ -140,28 +140,28 @@ export const food_list = [
         image: food_9,
         price: 1400,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Desserts"
     }, {
         id: "10",
         name: "Fruit Ice Cream",
         image: food_10,
         price: 2200,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Desserts"
     }, {
         id: "11",
         name: "Jar Ice Cream",
         image: food_11,
         price: 1000,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Desserts"
     }, {
         id: "12",
         name: "Vanilla Ice Cream",
         image: food_12,
         price: 1200,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Desserts"
     },
     {
         id: "13",
@@ -309,3 +309,4 @@ export const food_list = [
     }
 ]
 
+export default food_list;

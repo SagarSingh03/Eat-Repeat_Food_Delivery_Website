@@ -1,19 +1,28 @@
-# React + Vite
-# 🍔 Eat&Repeat – Food Delivery Website  
+React + Vite
+Eat & Repeat – Food Delivery Web App
+This is a React-based food delivery web application designed to simulate a real-world ordering experience. The focus of this project is not just UI, but improving user decision-making through a smooth ordering flow and personalized suggestions.
 
-**Eat&Repeat** is a modern **food delivery web app** built with **React, JSX, JavaScript, HTML, CSS, and Material UI (MUI)**.  
-The app allows users to browse a menu, add items to the cart, and proceed to checkout for a seamless food ordering experience.  
+Users often face decision fatigue while ordering food. This project aims to reduce friction by improving the checkout experience and guiding users with smart recommendations.
 
----
+Structure of this Project : I organized my project using a modular structure where each feature has its own folder with JSX and CSS, and separated pages from reusable components to improve scalability.
 
-## 🚀 Features
-- 📋 Browse a wide variety of food items (menu)
-- 🛒 Add to cart & view cart summary
-- 💳 Checkout page with order details
-- 🎨 Clean, responsive UI using **Material UI (MUI)**
-- ⚡ Built with **React** for fast rendering
-- 🔀 Routing handled with **React Router**
+Features of this Project :
 
----
+Browse food items by category
+Add/remove items from cart
+Dynamic cart management
+Optimized checkout flow
+Order success confirmation
+Personalized recommendations based on user behavior
+Smart UX elements like popular items and suggestions
+Project Thinking : This project was built with a product mindset — focusing on how users discover, decide, and complete orders. Instead of only building components, I focused on:
 
-## 📂 Project Structure
+Reducing friction in checkout
+Helping users make decisions faster
+Simulating real-world app behavior
+Tech Stack :
+
+React.js
+JavaScript (ES6)
+CSS
+Netlify (Deployment)

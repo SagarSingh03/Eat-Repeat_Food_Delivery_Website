@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Menu.css';
-import { food_list, menu_list } from '../../assets/Data';
+
+import { food_list, menu_list } from "../../assets/foodData";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Rating from '@mui/material/Rating';
@@ -13,20 +14,20 @@ const Menu = ({ onAddToCart }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [sortedItems, setSortedItems] = useState([]);
 
-  // ✅ STEP 1: Start with full list
+  
   let filteredItems = [...food_list];
 
-  // ✅ STEP 2: Apply category filter
+  
   if (category !== "All") {
     filteredItems = filteredItems.filter(item => item.category === category);
   }
 
-  // ✅ STEP 3: Apply search (override category if searching)
+  
   if (searchResults.length > 0) {
     filteredItems = searchResults;
   }
 
-  // ✅ STEP 4: Apply sorting on FINAL data
+  
   if (sortedItems.length > 0) {
     filteredItems = sortedItems;
   }
